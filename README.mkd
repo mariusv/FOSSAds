@@ -1,6 +1,12 @@
 # About
  
 FOSSAds is a community project to promote free and open source software
+This is a fork from  mapleoin project
 
 ## Uses
+
 Django
+
+#Credits
+
+Thanks to Ionuț Arțăriși.
