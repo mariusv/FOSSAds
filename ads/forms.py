@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# This file is part of cuZmeură.
-# Copyright (c) 2009-2010 Ionuț Arțăriși
+# This file is part of FOSSAds.
+# Copyright (c) 2009-2010 Marius Voilă
 
-# cuZmeură is free software: you can redistribute it and/or modify it under
+# FOSSAds is free software: you can redistribute it and/or modify it under
 # the terms of the GNU Affero General Public License as published by the Free
 # Software Foundation, either version 3 of the License, or (at your option)
 # any later version.
 
-# cuZmeură is distributed in the hope that it will be useful,
+# FOSSAds is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
 
 # You should have received a copy of the GNU Affero General Public License
-# along with cuZmeură.  If not, see <http://www.gnu.org/licenses/>.
+# along with FOSSAds.  If not, see <http://www.gnu.org/licenses/>.
 
 from django import forms
 from django.utils.translation import ugettext as _
@@ -30,7 +30,7 @@ class UserRegistrationForm(forms.Form):
     def clean_username(self):
         username = self.cleaned_data['username']
         if User.objects.filter(username=username):
-            raise forms.ValidationError(_(u"Există deja un cont cu acest nume."
+            raise forms.ValidationError(_(u"There is already an account with this name."
                                           ))
         return unicode(username)
 
@@ -38,8 +38,8 @@ class UserRegistrationForm(forms.Form):
         password = self.cleaned_data['password'] or ''
         password2 = self.cleaned_data['password2']
         if password != password2:
-            raise forms.ValidationError(_(u"Cele două câmpuri pentru parolă "
-                                          u"trebuie să fie identice."))
+            raise forms.ValidationError(_(u"The two password fields "
+                                          u"must be identical."))
         return password2
 
     def save(self):
@@ -60,11 +60,11 @@ class PublisherForm(forms.ModelForm):
         if Publisher.objects.filter(slug=slugify(name)
                                 ).exclude(id=self.instance.id):
             raise forms.ValidationError(_(
-                u'Există deja un sait cu acest nume sau unul similar.'))
+                u'EThere is already a site with that name or similar.'))
         return name
     def clean_url(self):
         url = self.cleaned_data['url']
         if Publisher.objects.filter(url=url).exclude(id=self.instance.id):
             raise forms.ValidationError(_(
-                u'Există deja un sait cu acest url'))
+                u'There is already a site with this url'))
         return url

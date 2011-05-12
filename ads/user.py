@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# This file is part of cuZmeură.
-# Copyright (c) 2009-2010 Ionuț Arțăriși
+# This file is part of FOSSAds.
+# Copyright (c) 2011 Marius Voilă
 
-# cuZmeură is free software: you can redistribute it and/or modify it under
+# FOSSAds is free software: you can redistribute it and/or modify it under
 # the terms of the GNU Affero General Public License as published by the Free
 # Software Foundation, either version 3 of the License, or (at your option)
 # any later version.
 
-# cuZmeură is distributed in the hope that it will be useful,
+# FOSSAds is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
 
 # You should have received a copy of the GNU Affero General Public License
-# along with cuZmeură.  If not, see <http://www.gnu.org/licenses/>.
+# along with FOSSAds.  If not, see <http://www.gnu.org/licenses/>.
 
 import datetime, hashlib, random
 
@@ -46,11 +46,11 @@ def register(request):
 
             # FIXME: move this to a template?
             # Send email with the activation information
-            email_subject = _(u"Contul tău cuZmeură")
-            email_body = _(u"Salut %s, \n\n"
-                           u"Îți mulțumim că te-ai înregistrat în rețeaua "
-                           u"cuZmeură.\n\n Îți poți activa contul în "
-                           u"următoarele două zile, urmând legătură aceasta:"
+            email_subject = _(u"Your FOSSAds Account")
+            email_body = _(u"Hey %s, \n\n"
+                           u"Thank you registered on the FOSSAds "
+                           u"network.\n\n You can activate your account within "
+                           u"two days, following this link:"
                            u"\n %s" % (
                                new_user.username,
                                settings.SITE_URL+'user/confirm/'+activation_key))
@@ -107,7 +107,7 @@ def profile(request):
             new_pub.owner = request.user
             new_pub.save()
             request.user.message_set.create(message=_(
-                u"Noul sait a fost adaugat cu succes."))
+                u"The new site was successfully added."))
         
     publishers = Publisher.objects.filter(owner=request.user)
 
@@ -153,11 +153,11 @@ def delete_pub(request, pub_slug):
     else:
         if request.user == pub.owner:
             pub.delete()
-            request.user.message_set.create(message=_(u"Saitul a fost sters cu"
-                                            u" succes!"))
+            request.user.message_set.create(message=_(u"The site was successfully"
+                                            u" deleted!"))
         else:
-            request.user.message_set.create(message=_(u"Nu ai dreptul de a "
-                                                      u"șterge acest sait!"))
+            request.user.message_set.create(message=_(u"You may  "
+                                                      u"not delete this site!"))
         return redirect("/user/profile/")
 
 @login_required
@@ -176,7 +176,7 @@ def modify_pub(request, pub_slug):
                 if form.is_valid():
                     pub = form.save()
                     request.user.message_set.create(message=_(
-                        u'Saitul a fost modificat cu succes!'))
+                        u'The site has been successfully modified!'))
                 else:
                     return render_to_response("modify_pub.html", {
                         'form':form,
