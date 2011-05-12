@@ -1,0 +1,8 @@
+settings.py
+test-settings.py
+media/admin
+media/afise/
+media/graphs/*
+pristav.db
+*.pyc
+*~

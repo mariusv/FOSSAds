@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Creează-ți un cont{% endblock %}
+
+{% block content %}
+
+  {% if form %}
+    <div class="authform">
+      {% if form.errors %}
+      <p id="flash_error">
+        Te rugăm să corectezi erorile de mai jos.
+      </p>
+      {% endif %}
+      <form id="login" action="" method="post">{% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Creează contul">
+      </form>
+    </div>
+  {% endif %}
+    <h3>De ce să te înregistrezi?</h3>
+    <p>După ce te-ai înregistrat vei putea să monitorizezi contribuția ta la
+    rețeaua <a href="http://cuzmeura.org">cuZmeură</a> cu un snippet
+    individualizat pentru saitul tău.</p>
+    
+  {% if thanks %}
+    <p>Îți mulțumim pentru înregistrare. Ți-am trimis un e-mail cu instrucțiuni
+      pentru activarea contului la adresa specificată. </p>
+  {% endif %}
+{% endblock %}

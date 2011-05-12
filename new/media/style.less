@@ -1,0 +1,187 @@
+@lightblue: #246673;
+@darkblue: #132730;
+@lightgray: #BCC4A6;
+@darkgray: #383434;
+@magenta: #BF2C53;
+@lightpink: #FFE3EB;
+@pink: #D87A90;
+@lightgreen: #f5ffe5;
+
+body {
+    background: @darkblue top left repeat;
+    font-family: sans-serif;
+    margin: 0;
+    padding: .1em .1em .5em;
+    border-top: 1em solid @lightblue;
+    border-bottom: 1em solid @lightblue;
+    border-left: 10.5em solid @lightblue;
+    border-right: 10.5em solid @lightblue;
+}
+
+#container {
+    margin: 0;
+    background-color: white;
+    padding: 0 4em 2em 3em;
+    border-left: solid 1em @lightgreen;
+    border-right: solid 1em @lightgreen;
+    min-height: 45em;
+}
+
+#content {
+    padding: 2em 0;
+    margin: 0;
+    color: @darkblue;
+    clear: both;
+    line-height: 140%;
+}
+
+a {
+    color: @lightblue;
+}
+a:hover {
+    color: @magenta;
+}
+a:visited {
+    color: @darkblue;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: normal;
+    padding: .6em 0 ;
+    margin: 0;
+    a {
+    color: @magenta;
+    text-decoration: none;
+    }
+    a:hover {
+    text-decoration: underline;
+    }
+    a:visited, a:active {
+    color: @magenta;
+    }
+}
+
+h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: normal;
+    color: @magenta;
+}
+
+.article {
+    h3 {
+        margin: 0;
+
+        a {
+          color: @magenta;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+          
+        }
+    h4 {
+        margin: 0;
+        font-weight: normal;
+        font-size: .8em;
+        color: @pink;
+        }
+}
+
+#antet {
+    background: transparent url(clouds.png) bottom left repeat-x;
+    padding: 0 0 70px;
+}
+
+img {
+    border: 0;
+}
+
+.authform {
+    padding: 1em;
+    margin: auto;
+    width: 25em;
+    color: @darkblue;
+    label {
+        width: 10em;
+        float: left;
+        font-size: 1.3em;
+    }
+    input {
+        border: solid @lightblue 2px;
+        font-size: 1.3em;
+        margin: .5em;
+        }
+    input[type="submit"] {
+        background-color: @lightblue;
+        color: @lightgreen;
+        font-size: 1.4em;
+        margin: .5em;
+    }
+    .login {
+        margin: 3em auto;
+    }
+}
+
+#authentication {
+    padding: 1.5em 1em 0 0;
+    margin: 0;
+    float: right;
+
+    a.buton {
+    text-transform:lowercase;
+    color: @lightgreen;
+    text-decoration: none;
+    background-color: @lightblue;
+    padding: 1.5em 6px 4px;
+    margin: 0;
+    }
+    a#special {background-color: @magenta;}   
+    a#special.buton:hover {background-color:@darkblue;}
+    a.buton:hover {background-color:@darkblue;}
+}
+
+#smallprint {
+    text-align: center;
+    font-size: .7em;
+    color: @lightblue;
+    line-height: 50%;
+    a {
+        color: @lightgreen;
+    }
+}
+
+#cuZmeura {
+    font-size: .6em;
+    clear: both;
+    float: right;
+}
+
+#flash_error {
+    color: @magenta;
+}
+#messages {
+    color: @magenta;
+    border: 1px solid @magenta;
+    background-color: @lightpink;
+    padding: 0 1em;
+}
+
+a.comment_link {
+    font-size: .7em;
+    color: @magenta;
+    text-decoration: none;
+    font-style: italic;
+    float: right;
+}
+
+a.comment_link:hover {
+    text-decoration: underline;
+}
+

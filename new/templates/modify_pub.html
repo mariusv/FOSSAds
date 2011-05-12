@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>{{ pub_slug }}</h3>
+
+<p>Aici poți modifica diferite detalii despre saitul tău și poți vedea câteva
+statistici nefolositoare despre ultima lună.</p>
+
+{% include "_pub_form.html" %}
+
+
+<img src="{{ graph_url }}" alt="impressions monthly graph" />
+
+<p>Așa arată snippet-ul tău:</p>
+  {% include "snippet.html" %}
+
+<p><a href="#"  onClick="if (confirm('Sunteți sigur că vreți să ștergeți saitul {{ pub.name }}?')) { window.location='/user/pub/remove/{{ pub.slug }}'}">
+  Șterge saitul</a></p>
+
+{% endblock %}

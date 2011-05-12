@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Afișe cuZmeură - rețea de publicitate FLOSS</title>
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}style.css" />
+    <script type="text/javascript">
+        {% block javascript %}{% endblock %}
+    </script>
+    {% block header %}{% endblock %}
+  </head>
+  <body>
+    
+    <div id="container">
+      <div id="antet">
+        <div id="authentication">
+          {% if user.is_authenticated %}
+          Sal, <a href="/user/profile/">{{ user.username }}</a> 
+          <a class="buton" href="/logout/">Ieșire</a>
+          {% else %}
+          <a class="buton" href="/login/">Autentificare</a>
+          <a class="buton" id="special" href="/user/register/">Înregistrare</a>
+          {% endif %}
+        </div>
+        <h1><a href="/" title="Acasă">cuZmeură</a></h1>
+      </div>
+      
+      <div id="content">
+        {% if messages %}
+        <div id="messages">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+
+    <div id="smallprint">
+      <p>
+        <a href="/">Acasă</a> |
+        {% if user.is_authenticated %}
+        <a href="/user/profile/">Profil</a> |
+        <a href="/logout/">Ieșire</a>|
+        {% else %}
+        <a href="/login/">Autentificare</a> |
+        <a href="/user/register/">Înregistrare</a> |
+        {% endif %}
+        <a href="/proiecte/">Proiecte</a> |
+        <a href="/about/">Despre</a>
+      </p>
+      <br/>
+      <p>cuZmeură © 2010 - găzduit de <a href="http://sblug.ro">SbLUG</a></p>
+      <p>Sursele
+      sunt <a href="http://github.com/mapleoin/cuZmeura">disponibile</a> sub
+      licență <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html">
+      AGPLv3</a></p>
+    </div>
+
+    <script type="text/javascript">
+      //<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/cuzmeura/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+    </script>
+  </body>
+</html>

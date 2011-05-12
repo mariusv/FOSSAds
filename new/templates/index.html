@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block header %}
+<link rel="alternate" type="application/rss+xml" title="Știrile cuZmeură" href="feed/index/" />
+{% endblock %}
+
+{% block content %}
+      <h3>Bine ai venit!</h3>
+      <p><a href="http://cuzmeura.org">cuZmeură</a> este un proiect de
+      promovare a comunităților
+      de <a href="http://ro.wikipedia.org/wiki/Free_software">software
+      liber</a> și cu <a href="http://ro.wikipedia.org/wiki/Open_source">surse
+      deschise</a> românești. Te poți gândi că suntem o rețea de publicitate
+      online; cu câteva mici diferențe:
+        <ul>
+          <li>serviciul nostru este gratuit pentru toată lumea</li>
+          <li>promovăm doar organizații și proiecte
+          de <a href="http://www.gnu.org/philosophy/free-sw.ro.html">software
+          liber</a></li>
+          <li>oricine poate <a href="/about#contribuie">participa</a></li>
+        </ul>
+      </p>
+      <p>Dacă vrei să ne ajuți în misiunea noastră, poți să lipești un
+      afiș <a href="http://cuZmeura">cuZmeură</a> pe situl sau blogul
+      tău copiind codul de mai jos.</p>
+      
+      <p>Poți vedea cum va arăta în dreapta.</p>
+
+      <script type="text/javascript" src="{{ domain }}serve/{{ publisher }}">
+        //<![CDATA[ (function(id) {
+  document.write('<script type="text/javascript" src="' + '{{ domain }}serve/'
+  + id + '"></' + 'script>'); })({{ publisher }}); //]]>
+      </script>
+
+      {% include "snippet.html" %}
+      
+      <br />
+
+      <h3>Vrei mai mult?</h3>
+      <p>Acum te poți <a href="/user/register/">înregistra</a> pentru un cont
+        <a href="http://cuzmeura.org">cuZmeură</a>. Așa vei putea avea
+        propriul snippet (ca cel de mai sus), cu ajutorul căruia vei putea
+        înregistra impresiile (de câte ori a fost încărcată o pagină) de pe
+        situl tău.</p>
+      <p>Ai un proiect liber pe care vrei să-l promovezi în rețeaua noastră?
+      Citește <a href="/proiecte/">regulile</a>, și contactează-ne.</p>
+      <p>Suntem abia la început și avem nevoie de mult ajutor pentru a realiza
+      ce ne-am propus. Ajută-ne și
+      tu, <a href="/about#contribuie">contribuind</a>!</p>
+
+      <h3>Ai întrebări?</h3>
+      <p>Află mai multe despre noi de <a href="/about/">aici</a>. Dacă ai o
+      problemă cu site-ul sau ai o idee pe care ai vrea să o implementăm, poți
+      deschide un
+      tichet <a href="http://github.com/mapleoin/cuZmeura/issues">aici</a>.</p>
+
+      <hr />
+      <br />
+      {% for post in posts %}
+      {% include "_article.html"%}
+      <a class="comment_link" href="/blog/{{ post.slug }}#disqus_thread"
+         alt="comentarii">comment</a>
+      <br /><br />
+      {% endfor %}
+
+      <hr />
+      <p>Am servit până acum <strong>{{ impressions|intcomma }}</strong>
+      afișe, promovând <strong>{{ project_count }}</strong> proiecte pe
+      <strong>{{ publisher_count }} </strong> siteuri înscrise
+      în rețea.</p>
+
+      
+{% endblock %}
