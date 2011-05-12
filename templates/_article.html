@@ -1,0 +1,10 @@
+{% load markup %}
+{% load humanize %}
+
+<div class="article">
+<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+<h4> - {{ post.created_at|naturalday }}</h4>
+
+<div class="post_body">{{ post.body|textile }}</div>
+
+</div>

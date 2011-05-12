@@ -1,0 +1,10 @@
+<textarea id="snippet" rows="8" cols="70" onclick="this.select()">
+  <script type="text/javascript" src="{{ domain }}serve/{{ pubslug }}">
+    //<![CDATA[
+  (function(id) {
+       document.write('<script type="text/javascript" src="' +
+       '{{ domain }}serve/' + id + '"></' + 'script>');
+       })({{ pub_slug }});
+  //]]>
+  </script>
+</textarea>

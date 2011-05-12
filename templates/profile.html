@@ -1,0 +1,50 @@
+{% extends "user.html" %}
+
+{% block javascript %}
+function toggleSnippet(elemId) {
+elem = document.getElementById(elemId);
+if (elem.style.display == '') {
+    elem.style.display = 'none';
+} else {
+    elem.style.display = '';
+}
+};
+{% endblock %}
+
+{% block innercontent %}
+
+{% if products %}
+<p>Aici poți vedea produsele tale existente -  proiectele sau comunitățile
+  pe care le promovezi prin intermediul rețelei noastre.</p>
+Produsele tale:
+{% for product in products %}
+  <a href="/user/product/{{ product.name }}/">{{ product.name }}</a>
+{% endfor %}
+<hr />
+{% endif %}
+
+<p>Poți adăuga oricând un nou sait în rețeaua cuZmeură. Îți vom da și un cod,
+  <em>snippet</em>, pe care îl poți folosi pentru a capta date despre
+  contribuția ta la promovarea proiectelor și comunităților libere. Nu trebuie
+  decât să adaugi noul site la profilul tău, folosind formularul de mai jos și
+  să folosești snippet-ul pe care îl vei primi pe situl tău.
+</p>
+
+<p>Saiturile tale:</p>
+
+{% for pub, pub_slug, imp, real in pub_imp %}
+  <p>Contul tău <em>{{ pub }}</em> a generat până acum {{ real }}
+    impresii. <a href="/user/pub/modify/{{ pub_slug }}">Detalii</a>
+  <a href="#" onClick="toggleSnippet('snippet-{{ pub_slug }}')">
+    Arată snippet</a></p>
+  <div id="snippet-{{ pub_slug }}" style="display: none;">
+    <p>Acesta este snippetul pe care îl poți folosi:</p>
+    {% include "snippet.html" %}
+  </div>
+{% endfor %}
+<br />
+<h3>Vrei să adaugi un sait?</h3>
+
+{% include "_pub_form.html" %}
+
+{% endblock %}

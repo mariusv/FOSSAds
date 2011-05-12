@@ -1,0 +1,133 @@
+body {
+  background: #132730 top left repeat;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0.1em 0.1em 0.5em;
+  border-top: 1em solid #246673;
+  border-bottom: 1em solid #246673;
+  border-left: 10.5em solid #246673;
+  border-right: 10.5em solid #246673;
+}
+#container {
+  margin: 0;
+  background-color: white;
+  padding: 0 4em 2em 3em;
+  border-left: solid 1em #f5ffe5;
+  border-right: solid 1em #f5ffe5;
+  min-height: 45em;
+}
+#content {
+  padding: 2em 0;
+  margin: 0;
+  color: #132730;
+  clear: both;
+  line-height: 140%;
+}
+a { color: #246673; }
+a:hover { color: #bf2c53; }
+a:visited { color: #132730; }
+h1 {
+  font-size: 2em;
+  font-weight: normal;
+  padding: 0.6em 0;
+  margin: 0;
+}
+h1 a {
+  color: #bf2c53;
+  text-decoration: none;
+}
+h1 a:hover { text-decoration: underline; }
+h1 a:visited { color: #bf2c53; }
+h1 a:active { color: #bf2c53; }
+h2 {
+  font-size: 3em;
+  margin: 0;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #bf2c53;
+}
+.article h3 { margin: 0; }
+.article h3 a {
+  color: #bf2c53;
+  text-decoration: none;
+}
+.article h3 a:hover { text-decoration: underline; }
+.article h4 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #d87a90;
+}
+#antet {
+  background: transparent url(clouds.png) bottom left repeat-x;
+  padding: 0 0 70px;
+}
+img { border: 0; }
+.authform {
+  padding: 1em;
+  margin: auto;
+  width: 25em;
+  color: #132730;
+}
+.authform label {
+  width: 10em;
+  float: left;
+  font-size: 1.3em;
+}
+.authform input {
+  border: solid #246673 2px;
+  font-size: 1.3em;
+  margin: 0.5em;
+}
+.authform input[type="submit"] {
+  background-color: #246673;
+  color: #f5ffe5;
+  font-size: 1.4em;
+  margin: 0.5em;
+}
+.authform .login { margin: 3em auto; }
+#authentication {
+  padding: 1.5em 1em 0 0;
+  margin: 0;
+  float: right;
+}
+#authentication a.buton {
+  text-transform: lowercase;
+  color: #f5ffe5;
+  text-decoration: none;
+  background-color: #246673;
+  padding: 1.5em 6px 4px;
+  margin: 0;
+}
+#authentication a#special { background-color: #bf2c53; }
+#authentication a#special.buton:hover { background-color: #132730; }
+#authentication a.buton:hover { background-color: #132730; }
+#smallprint {
+  text-align: center;
+  font-size: 0.7em;
+  color: #246673;
+  line-height: 50%;
+}
+#smallprint a { color: #f5ffe5; }
+#cuZmeura {
+  font-size: 0.6em;
+  clear: both;
+  float: right;
+}
+#flash_error { color: #bf2c53; }
+#messages {
+  color: #bf2c53;
+  border: 1px solid #bf2c53;
+  background-color: #ffe3eb;
+  padding: 0 1em;
+}
+a.comment_link {
+  font-size: 0.7em;
+  color: #bf2c53;
+  text-decoration: none;
+  font-style: italic;
+  float: right;
+}
+a.comment_link:hover { text-decoration: underline; }

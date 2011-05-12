@@ -1,0 +1,6 @@
+# About
+ 
+FOSSAds is a community project to promote free and open source software
+
+## Uses
+Django

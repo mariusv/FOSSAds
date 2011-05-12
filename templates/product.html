@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>Nume produs: {{ product }}</h4>
+
+
+<p>Acest produs are {{ ads.count }} afișe.</p>
+
+{% for ad in ads %}
+
+{% endfor %}
+
+{% endblock %}
